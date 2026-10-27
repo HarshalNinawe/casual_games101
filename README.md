@@ -185,3 +185,8 @@ No environment variables or external database configurations are required.
 - [ ] Extend optional sound effects to Cube 2048.
 - [ ] Optional backend integration for global multiplayer leaderboards.
 - [ ] Player achievement badges and daily gameplay streak trackers.
+
+
+
+
+Game link: [https://casual-games101.vercel.app/]
