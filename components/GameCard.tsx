@@ -216,13 +216,22 @@ function GameIcon({ gameId, color }: { gameId: string; color: string }) {
       </svg>
     );
   }
-  if (gameId === "jungle-rush") {
+  if (gameId === "endless-runner" || gameId === "jungle-rush") {
     return (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-        <circle cx="14" cy="16" r="5" fill={color} opacity="0.8" />
-        <path d="M6 20 Q8 14 14 11 Q20 14 22 20" stroke={color} strokeWidth="2" fill="none" opacity="0.7" />
-        <path d="M4 24 Q9 18 14 16 Q19 18 24 24" stroke={color} strokeWidth="2" fill="none" opacity="0.5" />
-        <path d="M12 11 Q10 6 14 4 Q18 6 16 11" fill={color} opacity="0.6" />
+        {/* Head */}
+        <circle cx="16" cy="6" r="3" fill={color} />
+        {/* Torso */}
+        <path d="M14 9 L11 16 L17 14 L14 9 Z" fill={color} opacity="0.9" />
+        {/* Arms */}
+        <path d="M13 11 L8 14 L5 13" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M15 11 L19 13 L23 10" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        {/* Legs */}
+        <path d="M11 16 L7 20 L5 24" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M16 14 L20 18 L24 17" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+        {/* Speed motion lines */}
+        <line x1="3" y1="8" x2="8" y2="8" stroke={color} strokeWidth="1.2" strokeLinecap="round" opacity="0.5" />
+        <line x1="2" y1="17" x2="6" y2="17" stroke={color} strokeWidth="1.2" strokeLinecap="round" opacity="0.4" />
       </svg>
     );
   }

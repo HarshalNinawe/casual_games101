@@ -39,7 +39,7 @@ export default function Hero() {
           className="w-2 h-2 rounded-full"
           style={{ background: "#22c55e", boxShadow: "0 0 6px rgba(34,197,94,0.6)" }}
         />
-        Cube 2048 Now Available
+        Cube 2048 &amp; Endless Runner Live
       </div>
 
       {/* Main heading */}

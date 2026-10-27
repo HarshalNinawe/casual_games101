@@ -11,18 +11,30 @@ Built with **Next.js**, **React**, **TypeScript**, **Tailwind CSS**, and **Phase
 | Game | Status | Type | Route / Details |
 | :--- | :--- | :--- | :--- |
 | **Cube 2048** | **Available** | Sliding-Tile Merge Puzzle | `/games/cube-2048` |
-| **Endless Runner** | *Coming Soon* | Action / Runner | In development |
+| **Endless Runner** | **Available** | 3-Lane Pseudo-3D Arcade Runner | `/games/endless-runner` |
 | **Hill Climb** | *Coming Soon* | Physics / Driving | In development |
 | **Long-Range Shooter** | *Coming Soon* | Aim & Precision | In development |
 
-### Available Game: Cube 2048
-The first fully playable game in PIXELVERSE. Slide matching number cubes together on a 4×4 grid to combine them, double their values, and chase the elusive 2048 cube and beyond.
+### Available Games
 
+#### 1. Cube 2048
+Slide matching number cubes together on a 4×4 grid to combine them, double their values, and chase the elusive 2048 cube and beyond.
 - **Controls**: Full keyboard support (`Arrow Keys` / `WASD`) and touch swipe gestures for mobile screens.
 - **Scoring**: Real-time score tracking with automatic high score persistence saved locally in browser storage.
 - **Session Controls**: Instant pause, resume, and restart controls.
 - **Visuals & Feedback**: Smooth 120ms tile entry animations, subtle merge burst effects, floating score popups, and distinctive styling for milestone tiles (1024, 2048, and 4096+).
-- **Game-Over Handling**: Automatic board grid validation with end-game modal dialogs.
+
+#### 2. Endless Runner
+A fast-paced 3-lane pseudo-3D endless speedway runner inspired by arcade classics, rendered with Phaser 2D perspective math.
+- **Controls**: Lane switching (`A / D` or `← / →`), Ground jumping (`W / ↑ / Space`), mobile swipe gestures, and on-screen touch buttons.
+- **3 Obstacle Types**:
+  - *Floor Spikes*: Low ground obstacles (jump over or switch lanes).
+  - *Hurdles*: Low barriers with hazard stripes (jump over or switch lanes).
+  - *Tall Walls*: Solid lane blockers that cannot be jumped over (must switch lanes).
+- **Procedural Track**: Infinite fair chunk generation with guaranteed safe pathways.
+- **Coins & Power**: Collect coins (+10 points) placed in straight lines and jump arcs.
+- **Dynamic Speed**: Automatically accelerates with distance traveled.
+- **Audio**: Built-in Web Audio API sound synthesizer for jump, coin chime, collision, and game over sounds (with instant mute toggle).
 
 ---
 
@@ -55,16 +67,17 @@ The first fully playable game in PIXELVERSE. Slide matching number cubes togethe
 - **Implemented**:
   - Full landing page (Hero, Game Grid, Header, and Footer).
   - Clean Red Arcade visual design system.
-  - Fully playable Cube 2048 game engine and dedicated game page.
-  - Touch and keyboard input handlers.
-  - Local high score persistence.
-  - "Coming Soon" modal notification for unreleased games.
+  - Fully playable **Cube 2048** sliding puzzle game.
+  - Fully playable **Endless Runner** 3-lane pseudo-3D game.
+  - Touch swipe and keyboard input handlers + mobile on-screen buttons.
+  - Web Audio API sound effects with mute toggle.
+  - Local high score persistence via `localStorage`.
+  - "Coming Soon" modal notification for remaining unreleased games.
 - **Not Currently Implemented** (by design for this phase):
   - No backend server, database, or cloud infrastructure.
   - No user accounts, authentication, or login system.
   - No global or multiplayer leaderboards (scores are strictly local).
-  - No sound effects or audio tracks.
-  - Remaining 3 games are non-playable placeholders.
+  - Remaining 2 games (Hill Climb, Long-Range Shooter) are in development.
 
 ---
 
@@ -77,8 +90,10 @@ casual_games101/
 │   ├── page.tsx                # Homepage layout (Hero, GameGrid, Header, Footer)
 │   ├── globals.css             # Theme design tokens, utilities, and animations
 │   └── games/
-│       └── cube-2048/
-│           └── page.tsx        # Cube 2048 page, score UI, and game canvas wrapper
+│       ├── cube-2048/
+│       │   └── page.tsx        # Cube 2048 page, score UI, and game canvas wrapper
+│       └── endless-runner/
+│           └── page.tsx        # Endless Runner page, stats, overlays, and controls
 │
 ├── components/
 │   ├── Header.tsx              # Fixed navigation bar with mobile menu
@@ -90,9 +105,14 @@ casual_games101/
 │   └── Footer.tsx              # Minimal light footer with branding
 │
 ├── games/
-│   └── cube2048/
-│       ├── Cube2048Game.tsx    # Phaser 3 game scene factory and React wrapper
-│       └── gameConfig.ts       # Tile color progression, grid size, and storage keys
+│   ├── cube2048/
+│   │   ├── Cube2048Game.tsx    # Cube 2048 Phaser 3 scene factory and React wrapper
+│   │   └── gameConfig.ts       # Tile color progression, grid size, and storage keys
+│   └── endlessRunner/
+│       ├── EndlessRunnerGame.tsx # Endless Runner Phaser 3 scene and React wrapper
+│       ├── gameConfig.ts       # Track parameters, speeds, obstacles, and keys
+│       ├── audio.ts            # Web Audio API sound synthesizer
+│       └── types.ts            # Object pools, callbacks, and game states
 │
 ├── public/                     # Static icons and assets
 ├── next.config.ts              # Next.js build configuration
