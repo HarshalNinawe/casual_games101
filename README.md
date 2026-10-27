@@ -175,10 +175,13 @@ No environment variables or external database configurations are required.
 
 ---
 
-## 🗺 Future Improvements
+## 🗺 Future Improvements & Roadmap
 
-- [ ] Implement gameplay engines for the remaining planned games (**Endless Runner**, **Hill Climb**, **Long-Range Shooter**).
-- [ ] Add sound effects and audio feedback with volume and mute toggles.
-- [ ] Implement an optional backend and database to support global leaderboards.
-- [ ] Introduce achievement badges and daily streak trackers.
-- [ ] Add dark mode toggle while preserving the Clean Red theme contrast.
+- [x] **Cube 2048**: Tile merging puzzle with responsive canvas, local high scores, and clean animations.
+- [x] **Endless Runner**: 3-lane pseudo-3D arcade runner with procedural generation, fair chunk patterns, jump mechanics, and object pooling.
+- [x] **Procedural Audio**: Web Audio API synthesizer for sound effects (jump, coins, crash, game over) with instant mute toggle.
+- [ ] Implement **Hill Climb** (2D terrain physics & momentum driving game).
+- [ ] Implement **Long-Range Shooter** (Trajectory & distance aiming arcade game).
+- [ ] Extend optional sound effects to Cube 2048.
+- [ ] Optional backend integration for global multiplayer leaderboards.
+- [ ] Player achievement badges and daily gameplay streak trackers.
